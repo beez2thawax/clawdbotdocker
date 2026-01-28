@@ -54,26 +54,35 @@ In the **Ports** section, make sure these are exposed:
 
 Coolify should map these automatically from the docker-compose file.
 
-### 6. Deploy
+### 6. Configure Domain
+
+**IMPORTANT:** You must set a domain for Coolify's proxy to route traffic:
+
+1. Go to the **Domains** tab in your application
+2. Click **Add Domain**
+3. Enter your domain (e.g., `clawdbot.yourdomain.com`)
+4. Coolify will automatically set up SSL with Let's Encrypt
+
+### 7. Deploy
 
 1. Click **Save**
 2. Click **Deploy**
 3. Wait for the build to complete (5-10 minutes first time)
 
-### 7. Access Your Dashboard
+### 8. Access Your Dashboard
 
-Once deployed, Coolify will give you a URL. Access your dashboard at:
+Once deployed, access your dashboard at:
 
 ```
-https://your-app-url.com:18789/?token=please-change-this-token
+https://clawdbot.yourdomain.com/?token=please-change-this-token
 ```
 
-Replace `please-change-this-token` with your actual `GATEWAY_TOKEN` if you set a custom one.
+Replace with your actual domain and `GATEWAY_TOKEN`.
 
-### 8. Connect the Dashboard
+### 9. Connect the Dashboard
 
 1. Open the dashboard URL
-2. In the **WebSocket URL** field, enter: `wss://your-app-url.com:18789`
+2. In the **WebSocket URL** field, enter: `wss://clawdbot.yourdomain.com`
 3. In the **Gateway Token** field, enter your token (default: `please-change-this-token`)
 4. Click **Connect**
 

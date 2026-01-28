@@ -31,11 +31,19 @@ In Coolify, add these environment variables:
 - `TELEGRAM_BOT_TOKEN` - Your Telegram bot token ([Create bot via @BotFather](https://t.me/BotFather))
 - `GATEWAY_TOKEN` - Custom security token (auto-generated if not set)
 
-### 3. Access the Dashboard
+### 3. Configure Domain
+
+In Coolify, you need to set a domain for your application:
+
+1. Go to the **Domains** section
+2. Add your domain (e.g., `clawdbot.yourdomain.com`)
+3. Coolify will automatically handle SSL with Let's Encrypt
+
+### 4. Access the Dashboard
 
 After deployment:
-- Dashboard URL: `https://your-app.coolify.app:18789/?token=YOUR_GATEWAY_TOKEN`
-- The gateway token is shown in the logs or set via `GATEWAY_TOKEN` env variable
+- Dashboard URL: `https://clawdbot.yourdomain.com/?token=YOUR_GATEWAY_TOKEN`
+- Replace `YOUR_GATEWAY_TOKEN` with your actual token (default: `please-change-this-token`)
 
 ## Manual Docker Deployment
 
