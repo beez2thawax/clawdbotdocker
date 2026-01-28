@@ -42,7 +42,8 @@ In Coolify, you need to set a domain for your application:
 ### 4. Access the Dashboard
 
 After deployment:
-- Dashboard URL: `https://clawdbot.yourdomain.com/?token=YOUR_GATEWAY_TOKEN`
+- Dashboard URL: `https://your-generated-domain/?token=YOUR_GATEWAY_TOKEN`
+- No port number needed - Coolify handles routing automatically
 - Replace `YOUR_GATEWAY_TOKEN` with your actual token (default: `please-change-this-token`)
 
 ## Manual Docker Deployment

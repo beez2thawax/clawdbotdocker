@@ -23,7 +23,7 @@
       "mode": "token",
       "token": "CHANGE_THIS_TOKEN_TO_SECURE_VALUE"
     },
-    "port": 18789,
+    "port": 80,
     "bind": "lan",
     "tailscale": {
       "mode": "off",

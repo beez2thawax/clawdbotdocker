@@ -71,18 +71,23 @@ Coolify should map these automatically from the docker-compose file.
 
 ### 8. Access Your Dashboard
 
-Once deployed, access your dashboard at:
+Once deployed, Coolify will provide a URL. Access your dashboard at:
 
+```
+https://your-generated-domain.sslip.io/?token=please-change-this-token
+```
+
+Or if you set a custom domain:
 ```
 https://clawdbot.yourdomain.com/?token=please-change-this-token
 ```
 
-Replace with your actual domain and `GATEWAY_TOKEN`.
+No port number needed - Coolify handles everything automatically!
 
 ### 9. Connect the Dashboard
 
 1. Open the dashboard URL
-2. In the **WebSocket URL** field, enter: `wss://clawdbot.yourdomain.com`
+2. In the **WebSocket URL** field, enter: `wss://your-domain` (same as dashboard URL, no port)
 3. In the **Gateway Token** field, enter your token (default: `please-change-this-token`)
 4. Click **Connect**
 
