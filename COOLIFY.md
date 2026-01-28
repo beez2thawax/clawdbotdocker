@@ -56,11 +56,12 @@ Coolify should map these automatically from the docker-compose file.
 
 ### 6. Configure Domain
 
-**IMPORTANT:** You must set a domain for Coolify's proxy to route traffic:
+**IMPORTANT:** You must set a domain with port 18789:
 
 1. Go to the **Domains** tab in your application
-2. Click **Add Domain**
-3. Enter your domain (e.g., `clawdbot.yourdomain.com`)
+2. Click **Add Domain** or **Edit Domains**
+3. **Include the port in the domain**: `https://clawdbot.yourdomain.com:18789`
+   - Or use the auto-generated domain: `https://xxx.sslip.io:18789`
 4. Coolify will automatically set up SSL with Let's Encrypt
 
 ### 7. Deploy
@@ -71,23 +72,21 @@ Coolify should map these automatically from the docker-compose file.
 
 ### 8. Access Your Dashboard
 
-Once deployed, Coolify will provide a URL. Access your dashboard at:
+Once deployed, access your dashboard at the domain you configured **with port 18789**:
 
 ```
-https://your-generated-domain.sslip.io/?token=please-change-this-token
+https://your-domain:18789/?token=please-change-this-token
 ```
 
-Or if you set a custom domain:
+For example:
 ```
-https://clawdbot.yourdomain.com/?token=please-change-this-token
+https://clawdbot.yourdomain.com:18789/?token=please-change-this-token
 ```
-
-No port number needed - Coolify handles everything automatically!
 
 ### 9. Connect the Dashboard
 
 1. Open the dashboard URL
-2. In the **WebSocket URL** field, enter: `wss://your-domain` (same as dashboard URL, no port)
+2. In the **WebSocket URL** field, enter: `wss://your-domain:18789` (include the port!)
 3. In the **Gateway Token** field, enter your token (default: `please-change-this-token`)
 4. Click **Connect**
 

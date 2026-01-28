@@ -13,8 +13,8 @@ if [ ! -z "$GATEWAY_TOKEN" ]; then
   sed -i "s/CHANGE_THIS_TOKEN_TO_SECURE_VALUE/$GATEWAY_TOKEN/g" "$CONFIG_FILE"
 fi
 
-# Update port to 80 for Coolify compatibility
-jq '.gateway.port = 80' "$CONFIG_FILE" > "$CONFIG_FILE.tmp" && mv "$CONFIG_FILE.tmp" "$CONFIG_FILE"
+# Update port to 18789 for Coolify with explicit port in domain
+jq '.gateway.port = 18789' "$CONFIG_FILE" > "$CONFIG_FILE.tmp" && mv "$CONFIG_FILE.tmp" "$CONFIG_FILE"
 
 # Update Telegram config if token is provided
 if [ ! -z "$TELEGRAM_BOT_TOKEN" ]; then
@@ -31,5 +31,5 @@ if [ ! -z "$ANTHROPIC_API_KEY" ]; then
   export ANTHROPIC_API_KEY="$ANTHROPIC_API_KEY"
 fi
 
-# Start clawdbot on port 80 (Coolify standard)
-exec clawdbot gateway --port 80
+# Start clawdbot on port 18789 (Coolify with explicit port in domain)
+exec clawdbot gateway --port 18789

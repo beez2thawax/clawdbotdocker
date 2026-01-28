@@ -3,12 +3,12 @@ services:
     build: .
     restart: unless-stopped
     expose:
-      - 80
+      - 18789
     labels:
       - traefik.enable=true
       - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
       - traefik.http.middlewares.gzip.compress=true
-      - traefik.http.services.clawdbot.loadbalancer.server.port=80
+      - traefik.http.services.clawdbot.loadbalancer.server.port=18789
       - traefik.http.routers.http-clawdbot.entryPoints=http
       - traefik.http.routers.http-clawdbot.rule=Host(`${FQDN}`)
       - traefik.http.routers.http-clawdbot.middlewares=redirect-to-https
