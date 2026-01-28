@@ -11,6 +11,9 @@ services:
       - traefik.http.services.clawdbot.loadbalancer.server.port=18789
       - traefik.http.routers.clawdbot.tls=true
       - traefik.http.routers.clawdbot.tls.certresolver=letsencrypt
+      - traefik.http.middlewares.clawdbot-ws.headers.customrequestheaders.Upgrade=websocket
+      - traefik.http.middlewares.clawdbot-ws.headers.customrequestheaders.Connection=upgrade
+      - traefik.http.routers.clawdbot.middlewares=clawdbot-ws
     environment:
       NODE_ENV: production
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
