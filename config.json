@@ -1,0 +1,53 @@
+{
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "agents": {
+    "defaults": {
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "workspace": "/app/workspace",
+      "model": {
+        "primary": "anthropic/claude-sonnet-4.5"
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "CHANGE_THIS_TOKEN_TO_SECURE_VALUE"
+    },
+    "port": 18789,
+    "bind": "lan",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": false
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": false
+    }
+  }
+}

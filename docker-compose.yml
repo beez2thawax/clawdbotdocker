@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  clawdbot:
+    build: .
+    container_name: clawdbot
+    restart: unless-stopped
+    ports:
+      - "18789:18789"
+      - "18791:18791"
+    environment:
+      - NODE_ENV=production
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN:-}
+      - GATEWAY_TOKEN=${GATEWAY_TOKEN:-CHANGE_THIS_TOKEN}
+    volumes:
+      - clawdbot-data:/root/.clawdbot
+      - workspace-data:/app/workspace
+    healthcheck:
+      test: ["CMD", "clawdbot", "health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  clawdbot-data:
+  workspace-data:
